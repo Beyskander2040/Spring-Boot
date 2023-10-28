@@ -8,4 +8,6 @@ public interface IChmabreServices {
     Chambre addChambre(Chambre chambre );
         Chambre updateChambre(Chambre chambre);
         Chambre getChambre(int idChambre);
+        void supprimerChambre(int idChambre);
+
 }

@@ -29,4 +29,9 @@ public class ChambreServicesImpl implements IChmabreServices {
     public Chambre getChambre(int idChambre) {
         return chambreRepository.findById(idChambre).orElse(null);
     }
+
+    @Override
+    public void supprimerChambre(int idChambre) {
+        chambreRepository.deleteById(idChambre);
+    }
 }

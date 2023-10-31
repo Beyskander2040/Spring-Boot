@@ -2,6 +2,9 @@ package tn.esprit.tp1_benelbeyskander_4twin7.services;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import tn.esprit.tp1_benelbeyskander_4twin7.entities.Foyer;
+import tn.esprit.tp1_benelbeyskander_4twin7.reposetries.IfoyerRepository;
 import tn.esprit.tp1_benelbeyskander_4twin7.reposetries.IuniversiteRepository;
 import tn.esprit.tp1_benelbeyskander_4twin7.entities.Universite;
 
@@ -11,6 +14,7 @@ import java.util.List;
 
 public class UniversiteServicesImpl implements IUniversiteServices{
     final IuniversiteRepository universiteRepository ;
+    final IfoyerRepository ifoyerRepository;
 
     @Override
     public List<Universite> getAllUniversite() {
@@ -35,5 +39,15 @@ public class UniversiteServicesImpl implements IUniversiteServices{
     @Override
     public void deleteUniversite(long idUniversite) {
         universiteRepository.deleteById(idUniversite);
+    }
+@Transactional
+    @Override
+    public Universite affecterFoyerAUniversite(long idFoyer, String nomUniversite) {
+        Foyer foyer  = ifoyerRepository.findById(idFoyer).orElse(null);
+        Universite universite = universiteRepository.findByNomUniversite(nomUniversite);
+        universite.setFoyer(foyer);
+       // return universiteRepository.save(universite);
+    return universite;
+        //save pour faire la mise a jour dans la base
     }
 }

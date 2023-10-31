@@ -47,4 +47,8 @@ public class BlocRestController {
         }
 
     }
+    @PutMapping("/affecterchambrebloc/{nomBloc}")
+    public  Bloc affecterchambrebloc(@RequestBody List<Integer> numeroChambre,@PathVariable String nomBloc){
+        return blocServices.affecterChambresABloc(numeroChambre,nomBloc);
+    }
 }

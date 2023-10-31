@@ -22,6 +22,7 @@ public class FoyerServicesImpl implements IFoyerSevices{
 
     @Override
     public Foyer updateFoyer(Foyer F) {
+
         return foyerRepository.save(F);
     }
 

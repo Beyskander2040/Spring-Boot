@@ -8,4 +8,5 @@ public interface IBlocServices {
     Bloc addBloc (Bloc bloc );
     Bloc getBloc (int idBloc);
     void removeBloc (int idBloc);
+    public Bloc affecterChambresABloc(List<Integer> numChambre, String nomBloc) ;
 }

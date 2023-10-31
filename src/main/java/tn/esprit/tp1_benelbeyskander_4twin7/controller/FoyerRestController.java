@@ -17,6 +17,9 @@ public class FoyerRestController {
     public List<Foyer> getallfoyer() {
         return foyerServices.getAllFoyer();
     }
+    @GetMapping("getfoyer/{idFoyer}")
+    public Foyer getfoyerbyid(@PathVariable long idFoyer){
+        return  foyerServices.getFoyer(idFoyer);    }
 
     @PostMapping("/addfoyer")
     public Foyer ajouterfoyer(@RequestBody Foyer f) {
@@ -24,7 +27,7 @@ public class FoyerRestController {
 
     }
 
-    @PutMapping("updatefoyer/{idFoyer]")
+    @PutMapping("/updatefoyer/{idFoyer}")
     public Foyer modifierfoyer(@PathVariable long idFoyer, @RequestBody Foyer updatedfoyer) {
         Foyer existingFoyer = foyerServices.getFoyer(idFoyer);
 

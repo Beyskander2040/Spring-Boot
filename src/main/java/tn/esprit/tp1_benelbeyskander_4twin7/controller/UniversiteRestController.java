@@ -12,20 +12,22 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("Universite")
 public class UniversiteRestController {
-    private final IUniversiteServices universiteServices ;
+    private final IUniversiteServices universiteServices;
 
     @GetMapping("/getalluniversites")
-    public List<Universite> getalluniversite(){
+    public List<Universite> getalluniversite() {
         return universiteServices.getAllUniversite();
 
     }
+
     @PostMapping("/adduniversite")
-    public  Universite ajouteruniversite(@RequestBody Universite universite ){
+    public Universite ajouteruniversite(@RequestBody Universite universite) {
         return universiteServices.addUniversite(universite);
 
     }
-    @PutMapping("/updateuniversite/{ idUniversite}")
-    public Universite modifieruniversite(@PathVariable Long idUniversite,@RequestBody Universite updatedUniversite) {
+
+    @PutMapping("/updateuniversite/{idUniversite}")
+    public Universite modifieruniversite(@PathVariable Long idUniversite, @RequestBody Universite updatedUniversite) {
         Universite existingUniversite = universiteServices.getUniversite(idUniversite);
         if (existingUniversite != null) {
             // Mettez à jour les attributs de l'université existante avec les nouvelles valeurs
@@ -36,6 +38,7 @@ public class UniversiteRestController {
             return null;
         }
     }
+
     @DeleteMapping("/delete/{idUniversite}")
     public void deleteUniversite(@PathVariable Long idUniversite) {
         Universite existingUniversite = universiteServices.getUniversite(idUniversite);
@@ -47,4 +50,11 @@ public class UniversiteRestController {
         }
     }
 
-}
+    @PutMapping("/affecterUnivFoyer/{idFoyer}/{nom}")
+    public Universite affecterUnivFoyer(@PathVariable Long idFoyer, @PathVariable String nom) {
+        return universiteServices.affecterFoyerAUniversite(idFoyer, nom);
+    }
+
+    }
+
+

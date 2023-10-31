@@ -21,7 +21,7 @@ private final IReservationServices reservationServices ;
     public Reservation ajouterfoyer(@RequestBody Reservation r) {
         return reservationServices.addReservation(r);
     }
-    @PutMapping("/updatereservation/{idReservation }")
+    @PutMapping("/update/{idReservation}")
     public Reservation modifierreservation(@PathVariable int idRservatoion ,@RequestBody Reservation updatedReservation){
     Reservation existingReservation = reservationServices.getReservation(idRservatoion);
     if (existingReservation != null){

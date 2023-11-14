@@ -5,6 +5,6 @@ import java.util.List;
 public interface IReservationServices {
     List<Reservation> getAllReservations();
     Reservation updateReservation(Reservation r);
-    Reservation  getReservation(int idReservation);
+    Reservation  getReservation(long idReservation);
     Reservation addReservation(Reservation r );
-    void supprimerReservation(int idFoyer);}
+    void supprimerReservation(long idReservation);}

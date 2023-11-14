@@ -26,12 +26,12 @@ public class ChambreServicesImpl implements IChmabreServices {
     }
 
     @Override
-    public Chambre getChambre(int idChambre) {
+    public Chambre getChambre(long idChambre) {
         return chambreRepository.findById(idChambre).orElse(null);
     }
 
     @Override
-    public void supprimerChambre(int idChambre) {
+    public void supprimerChambre(long idChambre) {
         chambreRepository.deleteById(idChambre);
     }
 }

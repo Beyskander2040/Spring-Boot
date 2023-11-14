@@ -19,7 +19,7 @@ import java.util.Set;
 public class Chambre implements Serializable {
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
-    private int idchambre;
+    private long idchambre;
     private long numeroChambre;
     @ManyToOne
      Bloc bloc ;

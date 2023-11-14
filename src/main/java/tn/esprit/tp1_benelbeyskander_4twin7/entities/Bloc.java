@@ -19,16 +19,17 @@ import java.util.Set;
 public class Bloc  implements Serializable {
     @GeneratedValue ( strategy = GenerationType.IDENTITY)
     @Id
-    private int idBloc ;
+    private long idBloc ;
     private String nomBloc;
     private long capaciteBloc ;
-   @ManyToOne
+   @ManyToOne(cascade =CascadeType.PERSIST)
    @JoinColumn(name = "foyer_id") //pour renommer le colone de jointure
            //el  mapedby dima nhoto fel child (cardinalite li akal )
            //el fk yemchi leli ando cardinalite akwa
    Foyer foyers  ;
-   @OneToMany (cascade =  CascadeType.ALL,mappedBy = "bloc")
+   @OneToMany (cascade =  {CascadeType.PERSIST,CascadeType.REMOVE},mappedBy = "bloc")
     private Set<Chambre> chambres ;
+   //fel fetch  fel onetomanymanytomany  lazy w fel one eager
 
 
 }

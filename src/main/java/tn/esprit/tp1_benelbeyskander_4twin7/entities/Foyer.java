@@ -24,7 +24,7 @@ public class Foyer implements Serializable {
     private String nomFoyer ;
     private long capaciteFoyer ;
 
-    @OneToOne ( mappedBy = "foyer" )
+    @OneToOne ( mappedBy = "foyer",fetch =FetchType.EAGER )
      private Universite universite ;
 //
     @OneToMany (cascade  = CascadeType.ALL, mappedBy="foyers")

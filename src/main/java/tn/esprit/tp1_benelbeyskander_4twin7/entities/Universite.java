@@ -19,6 +19,7 @@ public class Universite implements Serializable {
 @GeneratedValue ( strategy = GenerationType.IDENTITY)
 @Id
     private long  idUniversite ;
+@Column(unique = true) //c est a dire que le nom de l universite il n ya pas de redendance
     private String nomUniversite ;
     private String adresse ;
     @JsonIgnore
